@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-// import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -10,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    // maxWidth: 300,
     margin: "0.5rem",
     width: 300,
     boxShadow: "1px 2px 4px rgba(0, 0, 0, .5)",
@@ -38,7 +36,6 @@ export default function ImgMediaCard({ name, url }) {
 
   return (
     <Card className={classes.root}>
-      {/* <CardActionArea> */}
       <CardMedia
         component="img"
         alt={name}
@@ -50,11 +47,6 @@ export default function ImgMediaCard({ name, url }) {
         <Typography gutterBottom variant="h6" component="h2">
           {name}
         </Typography>
-        {/* <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography> */}
-
         <Typography gutterBottom variant="h6" component="h2">
           Pokedex-Id: {id}
         </Typography>
@@ -62,7 +54,6 @@ export default function ImgMediaCard({ name, url }) {
           This is pokemon {name}
         </Typography>
       </CardContent>
-      {/* </CardActionArea> */}
       <CardActions classes={{ root: classes.cardRoot }}>
         <Button variant="contained" color="primary">
           Button
