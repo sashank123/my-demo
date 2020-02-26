@@ -1,0 +1,32 @@
+.cards {
+  padding: 3rem 10rem;
+}
+.cardsOuter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.demo {
+  border: 1px solid white;
+  height: 21rem;
+  width: 300px;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 800px) {
+  .cards {
+    padding: 3rem 3rem;
+  }
+  .cardsOuter {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .cardsOuter {
+    flex-direction: inherit;
+  }
+}
