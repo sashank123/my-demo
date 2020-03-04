@@ -9,7 +9,7 @@ export default class Pokemon extends Component {
     if (loading) {
       return (
         <div className={classes.cards}>
-          <div className={classes.cardsOuter}>Loading....</div>
+          <div className={classes.loading}>Loading....</div>
         </div>
       );
     }

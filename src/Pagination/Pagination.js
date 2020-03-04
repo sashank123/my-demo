@@ -13,6 +13,14 @@ const useStyles = makeStyles({
     cursor: "pointer",
     boxShadow: "1px 2px 4px rgba(0, 0, 0, .5)"
   },
+  disabled: {
+    backgroundColor: "grey",
+    color: "#fff",
+    height: "2rem",
+    width: "2rem",
+    borderRadius: "1rem",
+    boxShadow: "1px 2px 4px rgba(0, 0, 0, .5)"
+  },
   buttons: {
     display: "flex",
     justifyContent: "center"
@@ -22,15 +30,21 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Pagination({ currentPage, increment, decrement }) {
+export default function Pagination({ increment, decrement, offset }) {
   const classes = useStyles();
-
   return (
     <div className={classes.buttons}>
-      <div onClick={() => decrement(currentPage)} className={classes.button}>
-        <NavigateBeforeRoundedIcon classes={{ root: classes.root }} />
+      <div
+        onClick={offset === 0 ? null : () => decrement()}
+        className={classes.button}
+      >
+        <NavigateBeforeRoundedIcon
+          classes={{
+            root: offset === 0 ? classes.disabled : classes.root
+          }}
+        />
       </div>
-      <div onClick={() => increment(currentPage)} className={classes.button}>
+      <div onClick={() => increment()} className={classes.button}>
         <NavigateNextRoundedIcon classes={{ root: classes.root }} />
       </div>
     </div>

@@ -14,7 +14,12 @@
   width: 300px;
   border-radius: 4px;
 }
-
+.loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 @media only screen and (max-width: 800px) {
   .cards {
     padding: 3rem 3rem;
