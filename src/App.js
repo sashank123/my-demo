@@ -10,9 +10,7 @@ class App extends Component {
     this.state = {
       loading: false,
       pokimons: [],
-      currentPage: 1,
       pokimonsPerPage: 3,
-      totalPages: 0,
       offset: 0
     };
   }
@@ -29,7 +27,6 @@ class App extends Component {
       this.setState(state => ({
         loading: false,
         pokimons: res.data.results
-        // totalPages: 7
       }));
     };
     fetchPokimons();
@@ -38,11 +35,10 @@ class App extends Component {
   increment = event => {
     this.setState(
       {
-        currentPage: this.state.currentPage - 1,
-        offset: this.state.offset + 3
+        offset: this.state.offset + 3,
+        loading: true
       },
       async () => {
-        this.setState(state => ({ loading: true }));
         const res = await axios.get("https://pokeapi.co/api/v2/pokemon/", {
           params: {
             offset: this.state.offset,
@@ -51,10 +47,7 @@ class App extends Component {
         });
         this.setState(state => ({
           loading: false,
-          pokimons: res.data.results,
-          totalPages: Math.ceil(
-            res.data.results.length / this.state.pokimonsPerPage
-          )
+          pokimons: res.data.results
         }));
       }
     );
@@ -63,11 +56,10 @@ class App extends Component {
   decrement = event => {
     this.setState(
       {
-        currentPage: this.state.currentPage - 1,
-        offset: this.state.offset - 3
+        offset: this.state.offset - 3,
+        loading: true
       },
       async () => {
-        this.setState(state => ({ loading: true }));
         const res = await axios.get("https://pokeapi.co/api/v2/pokemon/", {
           params: {
             offset: this.state.offset,
